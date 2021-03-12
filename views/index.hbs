@@ -1,29 +1,49 @@
-<h1>Eat Da Burger!</h1> 
-
-<h2>Burgers ready to eat.</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burgers/burger-stack devoured=false}}
-    {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Devoured burgers.</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burgers/burger-stack devoured=true}}
-    {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Add a burger.</h2>
-<form id="create-form">
-    <div class="form-group">
-        <label for="burg"> Your Burger:</label>
-        <input type="text" id="burg" name="burger_name">
+<div class="jumbotron">
+    <div class="burgerHero">
+        <img src="/public/assets/img/burger.jpg" alt="burger">
+        {{!-- move this section below to bottom later. --}}
+        <h2>Add to the menu or devour, your choice!</h2>
+        <div class="burger-add-holder mt-4">
+            <form class="create-form">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <input type="text" id="burg-input" name="burger_name" class="form-control" placeholder="Burger Name" aria-label="Burger Name" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="add-btn" type="submit" id="basic-addon2">Add Burger to Menu</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</form>
+    {{!-- move section above to bottom of page --}}
+</div>
+
+<div class="container-fluid">
+
+    <div class="burger-list-area mt-5 d-flex flex-column flex-sm-row justify-content-between">
+        <div class="menu-list list-box my-2 my-sm-0 mr-sm-2">
+            <h2 class="list-title">Burgers ready to eat.</h2>
+            <ul class="list-content" id="not-devoured-list">
+                 {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-stack devoured=false}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="menu-list list-box my-2 my-sm-0 mr-sm-2">
+            <h2 class="list-title">Devoured burgers.</h2>
+            <ul class="list-content" id="devoured-list">
+                 {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-stack devoured=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+
+</div>
