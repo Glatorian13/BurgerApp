@@ -1,16 +1,17 @@
 {
   "name": "burgerapp",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Burger application with mysql and handlebars",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Glatorian13/BurgerApp.git"
   },
-  "author": "",
+  "author": "Javier Cardenas",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Glatorian13/BurgerApp/issues"
@@ -20,5 +21,6 @@
     "express": "*",
     "express-handlebars": "^5.2.1",
     "mysql": "^2.18.1"
-  }
+  },
+  "devDependencies": {}
 }

@@ -4,17 +4,17 @@ const burger = require("../models/burger.js");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  burger.selectAll((data) => {
+  burger.all((data) => {
     const hbsObject = {
-      burgers: data,
+      burgers: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
-router.post("/api/burgers", (req, res) => {
-  burger.insertOne(
+router.post("/api/burger", (req, res) => {
+  burger.create(
     ["burger_name", "devoured"],
     [req.body.burger_name, req.body.devoured],
     (result) => {
@@ -23,11 +23,11 @@ router.post("/api/burgers", (req, res) => {
   );
 });
 
-router.put("/api/burgers/:id", (req, res) => {
+router.put("/api/burger/:id", (req, res) => {
   const condition = `id = ${req.params.id}`;
   console.log("condition", condition);
 
-  burger.updateOne(
+  burger.update(
     {
       devoured: req.body.devoured,
     },
